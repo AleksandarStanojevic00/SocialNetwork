@@ -1,3 +1,9 @@
+let session = new Session();
+session=session.getSession();
+if(session !== '') {
+    window.location.href = 'hexa.html';
+}
+
 const modal = document.querySelector('.custom-modal');
 const openBtn = document.querySelector('#registracija');
 const closeBtn = document.querySelector('#closeModal');

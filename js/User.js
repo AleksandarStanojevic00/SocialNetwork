@@ -23,10 +23,19 @@ class User {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('User created:', data);
+            let session = new Session();
+            session.user_id = data.id;
+            session.stratSession();
+
+            window.location.href = 'hexa.html';
+
         })
         .catch(error => {
             console.error('Error creating user:', error);
         });
+
+        
+
+
     }
 }    
