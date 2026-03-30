@@ -1,9 +1,9 @@
 class Session {
     user_id = '';
 
-    stratSession() {
+    startSession() {
         const d= new Date();
-        d.setTime(d.getTime() + (30*60*1000));
+        d.setTime(d.getTime() + (2*24*60*60*1000));
         let expires = "expires="+ d.toUTCString();
         document.cookie = "user_id=" + this.user_id + ";" + expires + ";path=/";
     }
@@ -22,9 +22,9 @@ class Session {
                 }
             }
             return "";
-        } 
+    } 
 
-        destroySession() {
+    destroySession() {
             let cookies= document.cookie.split(";");
             for (let i = 0; i < cookies.length; i++) {
                 let cookie = cookies[i];
@@ -32,6 +32,6 @@ class Session {
                 let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
                 document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
             }   
-        }
+    }
 
 }

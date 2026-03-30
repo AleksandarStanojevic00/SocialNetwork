@@ -1,7 +1,7 @@
 let session = new Session();
 session=session.getSession();
-if(session !== '') {
-    alert('You are already logged in!');
+if(session !== "") {
+    
 }else {
-    window.location.href = '/';
+    window.location.href = "/";
 }

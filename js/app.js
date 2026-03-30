@@ -1,6 +1,7 @@
 let session = new Session();
 session=session.getSession();
-if(session !== '') {
+
+if(session !== "") {
     window.location.href = 'hexa.html';
 }
 
@@ -65,9 +66,10 @@ document.querySelector('#registrationForm').addEventListener('submit', e => {
 
     if (validator.validationPassed()) {
         let user = new User();
-        user.username = document.querySelector('input[name="korisnicko_ime"]').value;
+        user.username = document.querySelector('#korisnicko_ime').value;
         user.email = document.querySelector('input[name="register_email"]').value;
         user.password = document.querySelector('input[name="register_lozinka"]').value;
+
         user.create();
 
         
@@ -75,3 +77,24 @@ document.querySelector('#registrationForm').addEventListener('submit', e => {
         alert('Not OK');
     }
 });
+
+const loginForm = document.querySelector('#loginForm');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const emailInput = e.currentTarget.querySelector('#login_email');
+        const passwordInput = e.currentTarget.querySelector('#login_lozinka');
+
+        if (!emailInput || !passwordInput) {
+            console.error('Login inputs are missing in the DOM.');
+            return;
+        }
+
+        let user = new User();
+        user.email = emailInput.value;
+        user.password = passwordInput.value;
+        user.login();
+    });
+}
