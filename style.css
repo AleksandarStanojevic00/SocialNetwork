@@ -12,7 +12,7 @@ body {
     background: radial-gradient(circle at top, #020617, #000000);
 }
 
-h1 {
+body:not(.hexa-page) > h1 {
     text-align: center;
     margin-bottom: 80px;
     color: #00ff9c;
@@ -78,7 +78,7 @@ h1 {
     box-shadow: 0 0 8px rgba(0, 255, 156, 0.6);
 }
 
-button {
+#loginForm button {
     width: 100%;
     padding: 10px 12px;
     border: none;
@@ -90,7 +90,7 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+#loginForm button:hover {
     background: #00cc7a;
     box-shadow: 0 0 12px #00ff9c;
 }
@@ -225,4 +225,112 @@ form ul li {
     color: #ff4d4d;
     margin-top: 3px;
     text-shadow: 0 0 6px rgba(255, 77, 77, 0.6);
+}
+
+/* Hexa page */
+.hexa-page {
+    padding: 40px 0;
+    background: radial-gradient(circle at top, #020617, #000000);
+}
+
+.hexa-page .container {
+    max-width: 980px;
+}
+
+.hexa-page .row {
+    align-items: flex-start;
+    --bs-gutter-x: 1.5rem;
+}
+
+.hexa-page .inner-container {
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 150, 0.2);
+    background: rgba(15, 23, 42, 0.94);
+    box-shadow: 0 0 25px rgba(0, 255, 150, 0.2);
+}
+
+.hexa-page .inner-container.left-side {
+    text-align: center;
+    min-height: 270px;
+}
+
+.hexa-page .inner-container.right-side {
+    min-height: 195px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 8px;
+}
+
+.hexa-page .inner-container.right-side h1 {
+    margin: 0;
+    color: #00ff9c;
+    font-size: 52px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.hexa-page .inner-container img.profile {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 16px;
+    border: 4px solid #00ff9c;
+}
+
+.hexa-page .left-side p {
+    margin-bottom: 6px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.hexa-page .left-side #email {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.hexa-page .left-side button {
+    width: auto;
+    display: inline-block;
+    padding: 10px 12px;
+    margin: 6px 4px 0;
+    border: none;
+    border-radius: 6px;
+    background: #00ff9c;
+    color: #0f172a;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.hexa-page .left-side button:hover {
+    background: #00cc7a;
+    box-shadow: 0 0 12px #00ff9c;
+}
+
+@media (max-width: 767.98px) {
+    .hexa-page .container {
+        padding: 0 18px;
+    }
+
+    .hexa-page .col-md-3 {
+        margin-bottom: 16px;
+    }
+
+    .hexa-page .inner-container.right-side h1 {
+        font-size: 36px;
+    }
+
+    .hexa-page .left-side p {
+        font-size: 20px;
+    }
+
+    .hexa-page .left-side #email {
+        font-size: 16px;
+    }
 }

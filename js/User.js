@@ -34,6 +34,13 @@ class User {
             console.error('Error creating user:', error);
         });     
     }
+    async get(user_id) {
+        let api_url = this.api_url + '/users/' + user_id;
+        let response = await fetch(api_url);
+        let data = await response.json();
+        return data;
+             
+    }
 
     login() {
     fetch(this.api_url + '/users')

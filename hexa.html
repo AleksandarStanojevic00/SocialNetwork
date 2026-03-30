@@ -3,15 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xexa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Hexa</title>
 </head>
-<body>
-    <h1>Welcome to Hexa!</h1>
+<body class="hexa-page">
+    <div class="container">
 
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="inner-container left-side">
+                    <img src="img/profile.png" class="profile" alt="Profile image">
+
+                    <p><b id="username">Aleks4nd4r</b></p>
+                    <p id="email">as@gmail.com</p>
+
+                    <button id="editAccount">Edit account</button>
+                    <button id="logout">Logout</button>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="inner-container right-side">
+                    <form id="postForm">
+                        <textarea id="postContent" placeholder="Write something and publish it..."></textarea>
+                        <button>Publish</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
 
 
     
     <script src="js/Session.js"></script>
+    <script src="js/User.js"></script>
     <script src="js/hexa.js"></script>
 </body>
 </html>
