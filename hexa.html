@@ -19,7 +19,7 @@
                     <p><b id="username">Aleks4nd4r</b></p>
                     <p id="email">as@gmail.com</p>
 
-                    <button id="editAccount">Edit account</button>
+                    <button id="editAccount" type="button">Edit account</button>
                     <button id="logout">Logout</button>
                 </div>
             </div>
@@ -28,12 +28,38 @@
                 <div class="inner-container right-side">
                     <form id="postForm">
                         <textarea id="postContent" placeholder="Write something and publish it..."></textarea>
-                        <button>Publish</button>
+                        <button type="submit">Publish</button>
                     </form>
+                    <div id="allPostsWrapper"></div>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <div class="custom-modal">
+        <form id="editForm">
+            <button id="closeModal" type="button">X</button>
+            <h2>Edit Account</h2>
+
+            <div>
+                <label for="korisnicko_ime">Username:</label>
+                <input id="korisnicko_ime" type="text" name="korisnicko_ime" placeholder="niko.nikolic1">
+            </div>
+
+            <div>
+                <label for="edit_email">Email address:</label>
+                <input id="edit_email" type="text" name="register_email" placeholder="niko.nikolic@mail.com">
+            </div>
+
+            <div>
+                <button>Edit</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <button id="deleteProfile" type="button">Delete Profile</button>
     </div>
 
     
@@ -42,6 +68,7 @@
     
     <script src="js/Session.js"></script>
     <script src="js/User.js"></script>
+    <script src="js/Post.js"></script>
     <script src="js/hexa.js"></script>
 </body>
 </html>

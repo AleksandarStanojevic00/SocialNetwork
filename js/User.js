@@ -42,6 +42,69 @@ class User {
              
     }
 
+    async edit() {
+        const session = new Session();
+        const session_id = session.getSession();
+
+        if (!session_id) {
+            throw new Error('Session expired. Please login again.');
+        }
+
+        const username = this.username.trim();
+        const email = this.email.trim();
+
+        if (!username || !email) {
+            throw new Error('Username and email are required.');
+        }
+
+        const currentResponse = await fetch(this.api_url + '/users/' + session_id);
+        if (!currentResponse.ok) {
+            throw new Error(`Failed to load current user. Status: ${currentResponse.status}`);
+        }
+
+        const currentUser = await currentResponse.json();
+
+        const payload = JSON.stringify({
+            username,
+            email,
+            password: currentUser.password
+        });
+
+        const updateResponse = await fetch(this.api_url + '/users/' + session_id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: payload
+        });
+
+        if (!updateResponse.ok) {
+            throw new Error(`Failed to update user. Status: ${updateResponse.status}`);
+        }
+
+        return updateResponse.json();
+    }
+
+    async deleteAccount() {
+        const session = new Session();
+        const session_id = session.getSession();
+
+        if (!session_id) {
+            throw new Error('Session expired. Please login again.');
+        }
+
+        const response = await fetch(this.api_url + '/users/' + session_id, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to delete profile. Status: ${response.status}`);
+        }
+
+        session.destroySession();
+        return true;
+    }
+
     login() {
     fetch(this.api_url + '/users')
         .then(response => {
